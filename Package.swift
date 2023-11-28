@@ -5,17 +5,28 @@ import PackageDescription
 
 let package = Package(
     name: "CIUAisen",
+    platforms: [
+        .macOS(.v13),
+        .iOS(.v16)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "CIUAisen",
             targets: ["CIUAisen"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/grdleo/LaTeXSwiftUI", from: "1.3.0")
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "CIUAisen"),
+            name: "CIUAisen",
+            dependencies: [
+                "LaTeXSwiftUI"
+            ],
+            path: "Sources"),
         .testTarget(
             name: "CIUAisenTests",
             dependencies: ["CIUAisen"]),
