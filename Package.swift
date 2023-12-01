@@ -26,7 +26,10 @@ let package = Package(
             dependencies: [
                 "LaTeXSwiftUI"
             ],
-            path: "Sources"),
+            path: "Sources",
+            resources: [
+                .process("Media.xcassets")
+            ]),
         .testTarget(
             name: "CIUAisenTests",
             dependencies: ["CIUAisen"]),
