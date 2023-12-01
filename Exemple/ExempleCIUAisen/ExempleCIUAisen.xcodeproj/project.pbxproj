@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9CB85A92B1984DA0068FB50 /* CIUAisen in Frameworks */ = {isa = PBXBuildFile; productRef = E9CB85A82B1984DA0068FB50 /* CIUAisen */; };
 		E9D3C6892B15C15100E188CE /* ExempleCIUAisenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D3C6882B15C15100E188CE /* ExempleCIUAisenApp.swift */; };
 		E9D3C68B2B15C15100E188CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D3C68A2B15C15100E188CE /* ContentView.swift */; };
 		E9D3C68D2B15C15200E188CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D3C68C2B15C15200E188CE /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9CB85A92B1984DA0068FB50 /* CIUAisen in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +87,9 @@
 			dependencies = (
 			);
 			name = ExempleCIUAisen;
+			packageProductDependencies = (
+				E9CB85A82B1984DA0068FB50 /* CIUAisen */,
+			);
 			productName = ExempleCIUAisen;
 			productReference = E9D3C6852B15C15100E188CE /* ExempleCIUAisen.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +118,9 @@
 				Base,
 			);
 			mainGroup = E9D3C67C2B15C15100E188CE;
+			packageReferences = (
+				E9CB85A72B1984DA0068FB50 /* XCRemoteSwiftPackageReference "CIUAisen" */,
+			);
 			productRefGroup = E9D3C6862B15C15100E188CE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -354,6 +362,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E9CB85A72B1984DA0068FB50 /* XCRemoteSwiftPackageReference "CIUAisen" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TheBonnec/CIUAisen";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E9CB85A82B1984DA0068FB50 /* CIUAisen */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9CB85A72B1984DA0068FB50 /* XCRemoteSwiftPackageReference "CIUAisen" */;
+			productName = CIUAisen;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E9D3C67D2B15C15100E188CE /* Project object */;
 }

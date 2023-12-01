@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(macOS 13, iOS 16, *)
-struct Selecteur<T: OptionSelecteur>: View {
+public struct Selecteur<T: OptionSelecteur>: View {
     
     /* ----- Attributs ----- */
     
@@ -22,7 +22,7 @@ struct Selecteur<T: OptionSelecteur>: View {
     
     /* ----- Inits ----- */
 
-    init(options: [T]) {
+    public init(options: [T]) {
         self.options = options
         self._optionSélectionné = State(initialValue: options[0])
     }
@@ -31,7 +31,7 @@ struct Selecteur<T: OptionSelecteur>: View {
     
     /* ----- Vues ----- */
     
-    var body: some View {
+    public var body: some View {
         GeometryReader { geo in
             ZStack(alignment: .leading) {
                 vueSélecteur
@@ -100,9 +100,9 @@ struct Selecteur<T: OptionSelecteur>: View {
 
 
 
-struct OptionTest: OptionSelecteur {
-    let id = UUID()
-    let clé: String
+public struct OptionTest: OptionSelecteur {
+    public let id = UUID()
+    public let clé: String
 }
 
 #Preview {
