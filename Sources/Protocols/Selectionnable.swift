@@ -8,7 +8,9 @@
 import Foundation
 
 
-public protocol OptionSelecteur: Identifiable, Equatable {
+public protocol Selectionnable: Identifiable, Equatable, Hashable {
     var id: UUID { get }
     var clé: String { get }
+    
+    init()
 }
