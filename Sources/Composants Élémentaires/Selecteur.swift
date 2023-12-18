@@ -98,7 +98,7 @@ public struct Selecteur<T: Selectionnable>: View {
 
 
 #Preview {
-    let options = [OptionTest(clé: "Option 1"), OptionTest(clé: "Option 2"), OptionTest(clé: "Option 3"), OptionTest(clé: "Option 4")]
+    let options = [LienGenerique(clé: "Option 1"), LienGenerique(clé: "Option 2"), LienGenerique(clé: "Option 3"), LienGenerique(clé: "Option 4")]
     @State var selection = options[0]
     
     return Selecteur(options: options, selection: $selection)

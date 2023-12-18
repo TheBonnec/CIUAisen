@@ -7,43 +7,29 @@
 
 import SwiftUI
 
-public struct LienDeNavigateur<T: Selectionnable, Destination: View>: View, ProtocolLienDeNavigateur {
-    
-    /* ----- Attributs ----- */
-    
-    let lien: T
-    let destination: Destination
-    @Binding var sélection: T
+
+public struct LienDeNavigateur: Identifiable {
+    public let id = UUID()
+    let lienDeNavigateur: any Lien
     
     
-    
-    /* ----- Inits ----- */
-    
-    public init(lien: T, destination: Destination, selection: Binding<T>) {
-        self.lien = lien
-        self.destination = destination
-        self._sélection = selection
+    public init<Destination: View>(clé: String, destination: Destination) {
+        let lienGénérique = LienGenerique(clé: clé)
+        self.lienDeNavigateur = LienDeNavigateurPrimitif(lien: lienGénérique, destination: destination)
     }
     
     
     
-    /* ----- Vues ----- */
+    public var lien: any Selectionnable {
+        return lienDeNavigateur.lien
+    }
     
-    public var body: some View {
-        HStack(spacing: 8) {
-            Text(lien.clé)
-            Spacer()
-        }
-        .padding(.vertical, 6)
-        .padding(.horizontal, 10)
-        .background(Rectangle()
-            .foregroundStyle(lien.id == sélection.id ? Color.elementSecondaire : Color.clear))
-        .cornerRadius(4)
-        .onTapGesture {
-            if sélection.id != lien.id {
-                sélection = lien
-            }
-        }
+    public var clé: String {
+        return lien.clé
+    }
+    
+    public var destination: any View {
+        lienDeNavigateur.destination
     }
 }
 
@@ -51,11 +37,7 @@ public struct LienDeNavigateur<T: Selectionnable, Destination: View>: View, Prot
 
 
 
-#Preview {
-    let lien = OptionTest(clé: "Algorithme d'Euclide - PGCD")
-    @State var selection = lien
-    
-    return LienDeNavigateur(lien: lien, destination: Text(""), selection: $selection)
-        .padding()
-        .background(Color.fondSecondaire)
+struct LienDeNavigateurPrimitif<T: Selectionnable, Destination: View>: Lien {
+    let lien: T
+    let destination: Destination
 }

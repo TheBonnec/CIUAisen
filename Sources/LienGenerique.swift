@@ -1,5 +1,5 @@
 //
-//  OptionTest.swift
+//  LienGenerique.swift
 //
 //
 //  Created by Thomas Le Bonnec on 01/12/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class OptionTest: Selectionnable {
+class LienGenerique: Selectionnable {
     let id = UUID()
     let clé: String
     
@@ -20,7 +20,7 @@ class OptionTest: Selectionnable {
     }
     
     
-    static func == (lhs: OptionTest, rhs: OptionTest) -> Bool {
+    static func == (lhs: LienGenerique, rhs: LienGenerique) -> Bool {
         return lhs.id == rhs.id
     }
     

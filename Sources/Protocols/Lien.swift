@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 
-protocol Lien {
+public protocol Lien {
     associatedtype T: Selectionnable
     associatedtype U: View
     
     var lien: T { get }
     var destination: U { get }
     
-    init(lien: T)
+    init(lien: T, destination: U)
 }
