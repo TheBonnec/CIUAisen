@@ -88,6 +88,7 @@ public struct Navigateur: View {
                 }
             }
         }
+        .background(Color.fondPrimaire.ignoresSafeArea())
     }
     
     
