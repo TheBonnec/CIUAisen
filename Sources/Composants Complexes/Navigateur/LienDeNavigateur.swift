@@ -29,7 +29,7 @@ public struct LienDeNavigateur: Identifiable {
     }
     
     public var destination: AnyView {
-        lienDeNavigateur.destination as! AnyView
+        AnyView(lienDeNavigateur.destination)
     }
 }
 
