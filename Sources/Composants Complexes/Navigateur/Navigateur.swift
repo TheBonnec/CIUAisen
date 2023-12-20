@@ -64,7 +64,6 @@ public struct Navigateur: View {
             
             // Page
             VStack {
-                TextField("Test", text: $test)
                 HStack(alignment: .top) {
                     switch typeAffichage {
                     case .liens: 
@@ -72,6 +71,9 @@ public struct Navigateur: View {
                     case .groupes:
                         let index = pageÀAfficherGroupes()
                         groupes[index[0]].liensDeNavigateur[index[1]].destination
+                            .onAppear {
+                                print("Appeared - CIUAisen")
+                            }
                     }
                 }
             }
