@@ -84,7 +84,7 @@ public struct Navigateur: View {
             // Page
             VStack {
                 HStack(alignment: .top) {
-                    sélection.destination
+                    AnyView(sélection.destination)
                 }
             }
         }

@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-public struct Page: View {
+public struct Page<Contenu: View>: View {
     
     public var titre: String
-    public var contenu: AnyView    //TODO: Remédier au problème des AnyView
+    public var contenu: Contenu    //TODO: Remédier au problème des AnyView
     
     
-    public init<Content: View>(titre: String, @ViewBuilder contenu: () -> Content) {
+    public init(titre: String, @ViewBuilder contenu: () -> Contenu) {
         self.titre = titre
-        self.contenu = AnyView(contenu())
+        self.contenu = contenu()
     }
     
     
