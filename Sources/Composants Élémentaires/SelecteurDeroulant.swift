@@ -42,7 +42,7 @@ public struct SelecteurDeroulant<T: Selectionnable>: View {
     
     var labelSelecteur: some View {
         HStack(spacing: 0) {
-            Text(selection.clé)
+            Text(selection.clé.localized())
             Spacer()
             Image(systemName: "chevron.down")
         }
@@ -58,7 +58,7 @@ public struct SelecteurDeroulant<T: Selectionnable>: View {
             Button(action: {
                 self.selection = option
             }, label: {
-                Text(option.clé)
+                Text(option.clé.localized())
             })
             .buttonStyle(.plain)
         }

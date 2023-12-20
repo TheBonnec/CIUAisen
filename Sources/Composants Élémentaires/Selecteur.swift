@@ -72,7 +72,7 @@ public struct Selecteur<T: Selectionnable>: View {
                         self.optionSélectionné = option
                     }
                 }, label: {
-                    Text(option.clé)
+                    Text(option.clé.localized())
                         .foregroundStyle(optionSélectionné.id == option.id ? Color.textePrimaire : Color.texteSecondaire)
                         .frame(width: largeur, height: hauteur)
                         .contentShape(Rectangle())

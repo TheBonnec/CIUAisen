@@ -23,7 +23,7 @@ public struct Page<Contenu: View>: View {
         GeometryReader { géometrie in
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    Text(titre)
+                    Text(titre.localized())
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)

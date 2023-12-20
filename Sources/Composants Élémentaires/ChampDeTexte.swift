@@ -38,7 +38,7 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(label)
+            Text(label.localized())
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .foregroundStyle(Color.texteSecondaire)

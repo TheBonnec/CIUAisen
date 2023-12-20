@@ -96,7 +96,7 @@ public struct Navigateur: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(liens) { item in
-                    Text("\(item.clé)")
+                    Text("\(item.clé)".localized())
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 6)
@@ -126,7 +126,7 @@ public struct Navigateur: View {
             VStack(alignment: .leading, spacing: 24) {
                 ForEach(groupes) { groupe in
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(groupe.titre)
+                        Text(groupe.titre.localized())
                             .font(.subheadline)
                             .fontWeight(.bold)
                             .foregroundStyle(Color.texteSecondaire)
@@ -134,7 +134,7 @@ public struct Navigateur: View {
                             .padding(.horizontal, 10)
                     
                         ForEach(groupe.liensDeNavigateur) { item in
-                            Text("\(item.clé)")
+                            Text("\(item.clé)".localized())
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.horizontal, 10)
                                 .padding(.vertical, 6)

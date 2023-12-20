@@ -53,7 +53,7 @@ public struct Bouton: View {
         Button(action: {
             action()
         }, label: {
-            Text(label)
+            Text(label.localized())
                 .foregroundStyle(couleurDeFace)
                 //.frame(height: 30)
                 .padding(.vertical, 6)
