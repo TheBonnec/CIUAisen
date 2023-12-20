@@ -51,9 +51,9 @@ public struct Bouton: View {
     
     public var body: some View {
         Button(action: {
-            print("")
+            action()
         }, label: {
-            Text("Bouton")
+            Text(label)
                 .foregroundStyle(couleurDeFace)
                 .frame(height: 30)
                 .padding(.horizontal, 12)
