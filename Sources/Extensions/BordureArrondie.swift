@@ -10,7 +10,7 @@ import SwiftUI
 
 
 extension View {
-    func bordureArrondie(width: CGFloat, color: Color, cornerRadius: CGFloat) -> some View {
+    public func bordureArrondie(width: CGFloat, color: Color, cornerRadius: CGFloat) -> some View {
         overlay(
             RoundedRectangle(cornerRadius: cornerRadius)
                 .stroke(color, lineWidth: width)

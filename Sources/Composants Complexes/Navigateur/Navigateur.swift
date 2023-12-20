@@ -8,14 +8,14 @@
 import SwiftUI
 
 
-struct Navigateur: View {
+public struct Navigateur: View {
     
     /* ----- Attributs ----- */
     
-    var largeur: CGFloat
-    var typeAffichage: TypeAffichage
-    var liens: [LienDeNavigateur]
-    var groupes: [LienDeNavigateurGroupe]
+    public var largeur: CGFloat
+    public var typeAffichage: TypeAffichage
+    public var liens: [LienDeNavigateur]
+    public var groupes: [LienDeNavigateurGroupe]
     
     @State private var sélection: LienDeNavigateur
     
@@ -26,7 +26,7 @@ struct Navigateur: View {
     /* ----- Inits ----- */
     
     // TODO: Sauvegarder les destinations dans un TuppleView
-    init(largeur: CGFloat = 250, liens: () -> [LienDeNavigateur]) {
+    public init(largeur: CGFloat = 250, liens: () -> [LienDeNavigateur]) {
         self.largeur = largeur
         self.typeAffichage = .liens
         self.liens = liens()
@@ -44,7 +44,7 @@ struct Navigateur: View {
     }
     
     
-    init(largeur: CGFloat = 250, groupes: () -> [LienDeNavigateurGroupe]) {
+    public init(largeur: CGFloat = 250, groupes: () -> [LienDeNavigateurGroupe]) {
         self.largeur = largeur
         self.typeAffichage = .groupes
         self.liens = []
@@ -72,7 +72,7 @@ struct Navigateur: View {
     
     /* ----- Vues ----- */
     
-    var body: some View {
+    public var body: some View {
         HStack(spacing: 0) {
             // Barre Latérale
             switch typeAffichage {
@@ -166,7 +166,7 @@ struct Navigateur: View {
     
     /* ----- Enum ----- */
     
-    enum TypeAffichage {
+    public enum TypeAffichage {
         case liens, groupes
     }
 }
