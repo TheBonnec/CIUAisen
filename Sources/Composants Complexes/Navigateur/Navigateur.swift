@@ -38,11 +38,11 @@ public struct Navigateur: View {
     }
     
     
-    public init(largeur: CGFloat = 250, cléPageAccueil: String, groupes: () -> [LienDeNavigateurGroupe]) {
+    public init(largeur: CGFloat = 250, cléPageAccueil: String, groupes: [LienDeNavigateurGroupe]) {
         self.largeur = largeur
         self.typeAffichage = .groupes
         self.liens = []
-        self.groupes = groupes()
+        self.groupes = groupes
         
         self._sélection = State(initialValue: cléPageAccueil)
     }
@@ -71,9 +71,6 @@ public struct Navigateur: View {
                     case .groupes:
                         let index = pageÀAfficherGroupes()
                         groupes[index[0]].liensDeNavigateur[index[1]].destination
-                            .onAppear {
-                                print("Appeared - CIUAisen")
-                            }
                     }
                 }
             }
