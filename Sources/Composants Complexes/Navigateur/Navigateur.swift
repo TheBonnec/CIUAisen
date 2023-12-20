@@ -19,6 +19,8 @@ public struct Navigateur: View {
     
     @State private var sélection: String
     
+    @State private var test: String = "test"
+    
     
     
     
@@ -62,6 +64,7 @@ public struct Navigateur: View {
             
             // Page
             VStack {
+                TextField("Test", text: $test)
                 HStack(alignment: .top) {
                     switch typeAffichage {
                     case .liens: 
