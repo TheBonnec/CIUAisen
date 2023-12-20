@@ -11,6 +11,7 @@ import SwiftUI
 public struct CelluleBleu<Content: View>: View {
     
     public var alignement: Alignment
+    private var alignementHorizontal: HorizontalAlignment
     public var largeur: CGFloat?
     public var largeurMax: CGFloat?
     public var contenu: Content
@@ -21,22 +22,26 @@ public struct CelluleBleu<Content: View>: View {
         self.largeur = largeur
         self.largeurMax = largeurMax
         self.contenu = contenu()
+        
+        if alignement == .leading { self.alignementHorizontal = .leading }
+        else if alignement == .trailing { self.alignementHorizontal = .trailing }
+        else { self.alignementHorizontal = .center }
     }
     
     
     
     public var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            HStack(spacing: 0) {
-                if largeurMax == nil && alignement == .trailing {
-                    Spacer()
-                }
-                
+        HStack(spacing: 0) {
+            if largeurMax == nil && alignement == .trailing {
+                Spacer()
+            }
+            
+            VStack(alignment: alignementHorizontal, spacing: 16) {
                 contenu
-                
-                if largeurMax == nil && alignement == .leading {
-                    Spacer()
-                }
+            }
+            
+            if largeurMax == nil && alignement == .leading {
+                Spacer()
             }
         }
         .padding(16)
