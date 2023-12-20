@@ -54,8 +54,10 @@ public struct Bouton: View {
             action()
         }, label: {
             Text(label)
+                .font(.system(size: 13))
                 .foregroundStyle(couleurDeFace)
                 .frame(height: 30)
+                //.padding(.vertical, 6)
                 .padding(.horizontal, 12)
                 .background(couleurDeFond)
                 .cornerRadius(4)
