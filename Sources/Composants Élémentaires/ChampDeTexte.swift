@@ -62,6 +62,7 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
     }
     
     public var entréeNumérale: some View {
+        /*
         TextField(label, value: Binding(
             get: {
                 Double(self.valeur?.description ?? "0") ?? 0
@@ -69,6 +70,8 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
             set: {
                 self.valeur = V(String($0)) ?? self.valeur
             }), formatter: NumberFormatter())
+         */
+        TextField(label, value: $valeur, formatter: NumberFormatter())
         .champDeTexteAisenClassique()
     }
     

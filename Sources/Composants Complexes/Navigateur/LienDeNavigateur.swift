@@ -28,8 +28,8 @@ public struct LienDeNavigateur: Identifiable {
         return lien.clé
     }
     
-    public var destination: any View {
-        lienDeNavigateur.destination
+    public var destination: AnyView {
+        lienDeNavigateur.destination as! AnyView
     }
 }
 
