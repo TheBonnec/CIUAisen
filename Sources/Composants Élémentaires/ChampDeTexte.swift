@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(macOS 13, iOS 16, *)
+@available(macOS 14, iOS 17, *)
 public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertible>: View {
     
     /* ----- Attributs ----- */
@@ -71,7 +71,7 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
                 self.valeur = V(String($0)) ?? self.valeur
             }), formatter: NumberFormatter())
          */
-        TextField(label, value: $valeur, formatter: NumberFormatter())
+        TextField(label, value: $valeur, format: .number)
         .champDeTexteAisenClassique()
     }
     
