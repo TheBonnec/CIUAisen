@@ -212,10 +212,10 @@ public struct Navigateur: View {
     /*return Navigateur {[
         euclide, euclideEtendu, modulo
     ]}*/
-    return Navigateur(cléPageAccueil: "Chapitre 1") {[
+    return Navigateur(cléPageAccueil: "Chapitre 1", groupes: [
         LienDeNavigateurGroupe(titre: "Chapitre 1", liensDeNavigateur: [euclide, euclideEtendu]),
         LienDeNavigateurGroupe(titre: "Chapitre 2", liensDeNavigateur: [modulo])
-    ]}
+    ])
     .frame(width: 700, height: 400)
     .background(Color.fondPrimaire)
 }
