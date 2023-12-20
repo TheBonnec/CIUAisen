@@ -13,7 +13,7 @@ public struct LienDeNavigateur: Identifiable {
     let lienDeNavigateur: any Lien
     
     
-    public init<Destination: View>(clé: String, destination: Destination) {
+    public init(clé: String, destination: Page) {
         let lienGénérique = LienGenerique(clé: clé)
         self.lienDeNavigateur = LienDeNavigateurPrimitif(lien: lienGénérique, destination: destination)
     }
@@ -28,8 +28,8 @@ public struct LienDeNavigateur: Identifiable {
         return lien.clé
     }
     
-    public var destination: any View {
-        lienDeNavigateur.destination
+    public var destination: Page {
+        lienDeNavigateur.destination as! Page   // Possible car l'init n'accepte que des types Page en argument
     }
 }
 
@@ -37,7 +37,7 @@ public struct LienDeNavigateur: Identifiable {
 
 
 
-struct LienDeNavigateurPrimitif<T: Selectionnable, Destination: View>: Lien {
+struct LienDeNavigateurPrimitif<T: Selectionnable>: Lien {
     let lien: T
-    let destination: Destination
+    let destination: Page
 }

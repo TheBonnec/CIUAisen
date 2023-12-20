@@ -45,7 +45,7 @@ public struct Selecteur<T: Selectionnable>: View {
         .padding(3)
         .background(Color.elementPrimaire)
         .cornerRadius(4)
-        .border(width: 1, color: .elementSecondaire, cornerRadius: 4)
+        .bordureArrondie(width: 1, color: .elementSecondaire, cornerRadius: 4)
     }
     
     

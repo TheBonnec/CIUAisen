@@ -49,7 +49,6 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
             case .nombre: entréeNumérale
             }
         }
-        .padding()
         .frame(minWidth: 100)
     }
     

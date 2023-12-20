@@ -23,6 +23,10 @@ extension Color {
     public static let fondSecondaire = Color("FondSecondaire", bundle: .module)
     public static let fondTertiaire = Color("FondTertiaire", bundle: .module)
     
+    // Ombres
+    public static let ombrePrimaire = Color("OmbrePrimaire", bundle: .module)
+    public static let ombreSecondaire = Color("OmbreSecondaire", bundle: .module)
+    
     // Teintes
     public static let blancConstant = Color("BlancConstant", bundle: .module)
     public static let teinteDeBase = Color("TeinteDeBase", bundle: .module)

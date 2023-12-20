@@ -17,6 +17,6 @@ extension TextField {
             .padding(.horizontal, 10)
             .background(Color.elementPrimaire)
             .cornerRadius(4)
-            .border(width: 1, color: .bordurePrimaire, cornerRadius: 4)
+            .bordureArrondie(width: 1, color: .bordurePrimaire, cornerRadius: 4)
     }
 }
