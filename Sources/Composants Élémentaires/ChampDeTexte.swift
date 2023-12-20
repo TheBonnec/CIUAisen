@@ -13,20 +13,20 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
     /* ----- Attributs ----- */
     
     var label: String
-    @Binding var valeur: V
+    @Binding var valeur: V?
     var type: TypeEntrée
     
     
     
     /* ----- Inits ----- */
     
-    public init(label: String, entréeTextuelle: Binding<V>) where V == String {
+    public init(label: String, entréeTextuelle: Binding<V?>) where V == String {
         self.label = label
         self._valeur = entréeTextuelle
         self.type = .texte
     }
     
-    public init(label: String, entréeNumérale: Binding<V>) where V == Int {
+    public init(label: String, entréeNumérale: Binding<V?>) where V == Int {
         self.label = label
         self._valeur = entréeNumérale
         self.type = .nombre
@@ -62,11 +62,13 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
     }
     
     public var entréeNumérale: some View {
-        TextField(label, value: Binding(get: {
-            Double(self.valeur.description) ?? 0.0
-        }, set: {
-            self.valeur = V(String($0)) ?? self.valeur
-        }), formatter: NumberFormatter())
+        TextField(label, value: Binding(
+            get: {
+                Double(self.valeur?.description ?? "0") ?? 0
+            },
+            set: {
+                self.valeur = V(String($0)) ?? self.valeur
+            }), formatter: NumberFormatter())
         .champDeTexteAisenClassique()
     }
     
