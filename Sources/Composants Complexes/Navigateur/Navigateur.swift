@@ -98,15 +98,15 @@ public struct Navigateur: View {
                             .font(.subheadline)
                             .fontWeight(.bold)
                             .foregroundStyle(Color.texteSecondaire)
-                            .padding(.bottom, 6)
-                            .padding(.horizontal, 10)
+                            .padding(.bottom, 8)
+                            .padding(.horizontal, 12)
                     
                         ListeDeLiens(liens: groupe.liensDeNavigateur, sélection: $sélection)
                     }
                 }
             }
             .padding(10)
-            .padding(.top, 6)
+            .padding(.top, 8)
         }
         .frame(width: largeur)
         .bordureArrondie(width: 2, color: .bordurePrimaire, cornerRadius: 8)
@@ -171,8 +171,8 @@ public struct Navigateur: View {
             ForEach(liens) { item in
                 Text("\(item.clé)".localized())
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 8)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 10)
                     .background(Rectangle()
                         .foregroundStyle(sélection == item.id ? Color.elementSecondaire : Color.clear)
                         .contentShape(Rectangle())
