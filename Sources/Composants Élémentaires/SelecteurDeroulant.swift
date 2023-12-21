@@ -46,7 +46,7 @@ public struct SelecteurDeroulant<T: Selectionnable>: View {
             Spacer()
             Image(systemName: "chevron.down")
         }
-        .padding(.vertical, 7)
+        .padding(.vertical, 10)
         .padding(.horizontal, 10)
         .background(Color.elementSecondaire)
         .cornerRadius(4)

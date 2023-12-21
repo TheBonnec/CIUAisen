@@ -15,7 +15,7 @@ public struct Selecteur<T: Selectionnable>: View {
     private let options: [T]
     @Binding var optionSélectionné: T
     
-    private let hauteur: CGFloat = 28
+    private let hauteur: CGFloat = 32
     @State private var largeur: CGFloat = 0
     
     
@@ -45,7 +45,7 @@ public struct Selecteur<T: Selectionnable>: View {
         .padding(3)
         .background(Color.elementPrimaire)
         .cornerRadius(4)
-        .bordureArrondie(width: 1, color: .elementSecondaire, cornerRadius: 4)
+        .bordureArrondie(width: 1, color: .bordurePrimaire, cornerRadius: 4)
     }
     
     
