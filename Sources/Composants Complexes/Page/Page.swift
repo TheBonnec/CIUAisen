@@ -35,6 +35,7 @@ public struct Page<Contenu: View>: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 }
                 .padding(.top, 20 + CGFloat(géometrie.safeAreaInsets.top))
+                .padding(.bottom, 20)
                 .padding(.horizontal, 36)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
