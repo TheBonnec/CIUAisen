@@ -178,9 +178,16 @@ public struct Navigateur: View {
                         .contentShape(Rectangle())
                     )
                     .cornerRadius(4)
-                    .onTapGesture {
+                    .gesture(
+                        DragGesture(minimumDistance: 0)
+                            .onChanged({ _ in
+                                self.sélection = item.id
+                            })
+                    )
+                    /*.onTapGesture {
                         self.sélection = item.id
                     }
+                    */
             }
         }
     }
