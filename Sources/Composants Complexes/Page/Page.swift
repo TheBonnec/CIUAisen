@@ -22,14 +22,14 @@ public struct Page<Contenu: View>: View {
     public var body: some View {
         GeometryReader { géometrie in
             ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
+                VStack(alignment: .leading, spacing: 36) {
                     Text(titre.localized())
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     
                     
-                    VStack(alignment: .leading, spacing: 16) {
+                    VStack(alignment: .leading, spacing: 24) {
                         contenu
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)

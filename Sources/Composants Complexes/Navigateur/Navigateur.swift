@@ -17,7 +17,7 @@ public struct Navigateur: View {
     public var liens: [LienDeNavigateur]
     public var groupes: [LienDeNavigateurGroupe]
     
-    @State private var sélection: String
+    @State private var sélection: UUID
     
     @State private var test: String = "test"
     
@@ -28,23 +28,23 @@ public struct Navigateur: View {
     /* ----- Inits ----- */
     
     // TODO: Sauvegarder les destinations dans un TuppleView
-    public init(largeur: CGFloat = 250, cléPageAccueil: String, liens: () -> [LienDeNavigateur]) {
+    public init(largeur: CGFloat = 250, pageAccueil: LienDeNavigateur, liens: () -> [LienDeNavigateur]) {
         self.largeur = largeur
         self.typeAffichage = .liens
         self.liens = liens()
         self.groupes = []
         
-        self._sélection = State(initialValue: cléPageAccueil)
+        self._sélection = State(initialValue: pageAccueil.id)
     }
     
     
-    public init(largeur: CGFloat = 250, cléPageAccueil: String, groupes: [LienDeNavigateurGroupe]) {
+    public init(largeur: CGFloat = 250, pageAccueil: LienDeNavigateur, groupes: [LienDeNavigateurGroupe]) {
         self.largeur = largeur
         self.typeAffichage = .groupes
         self.liens = []
         self.groupes = groupes
         
-        self._sélection = State(initialValue: cléPageAccueil)
+        self._sélection = State(initialValue: pageAccueil.id)
     }
     
     
@@ -65,13 +65,7 @@ public struct Navigateur: View {
             // Page
             VStack {
                 HStack(alignment: .top) {
-                    switch typeAffichage {
-                    case .liens: 
-                        liens[pageÀAfficherLiens()].destination
-                    case .groupes:
-                        let index = pageÀAfficherGroupes()
-                        groupes[index[0]].liensDeNavigateur[index[1]].destination
-                    }
+                    pageÀAfficher()
                 }
             }
         }
@@ -128,25 +122,29 @@ public struct Navigateur: View {
     
     /* ----- Méthodes ----- */
     
-    func pageÀAfficherLiens() -> Int {
-        for i in 0..<liens.count {
-            if liens[i].clé == sélection {
-                return i
+    func pageÀAfficher() -> AnyView {
+        switch typeAffichage {
+        case .liens:
+            for lien in liens {
+                if lien.id == sélection {
+                    return lien.destination
+                }
             }
-        }
-        return 0
-    }
-    
-    
-    func pageÀAfficherGroupes() -> [Int] {
-        for i in 0..<groupes.count {
-            for j in 0..<groupes[i].liensDeNavigateur.count {
-                if groupes[i].liensDeNavigateur[j].clé == sélection {
-                    return [i, j]
+        case .groupes:
+            for groupe in groupes {
+                for lien in groupe.liensDeNavigateur {
+                    if lien.id == sélection {
+                        return lien.destination
+                    }
                 }
             }
         }
-        return [0, 0]
+        
+        let pageParDefault = Page(titre: "") {
+            Text("Rien. Nada. Ничего нет.")
+        }
+        
+        return AnyView(pageParDefault)
     }
     
     
@@ -167,21 +165,21 @@ public struct Navigateur: View {
     struct ListeDeLiens: View {
         
         var liens: [LienDeNavigateur]
-        @Binding var sélection: String
+        @Binding var sélection: UUID
         
         var body: some View {
             ForEach(liens) { item in
                 Text("\(item.clé)".localized())
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 10)
-                    .padding(.vertical, 6)
+                    .padding(.vertical, 8)
                     .background(Rectangle()
-                        .foregroundStyle(sélection == item.clé ? Color.elementSecondaire : Color.clear)
+                        .foregroundStyle(sélection == item.id ? Color.elementSecondaire : Color.clear)
                         .contentShape(Rectangle())
                     )
                     .cornerRadius(4)
                     .onTapGesture {
-                        self.sélection = item.clé
+                        self.sélection = item.id
                     }
             }
         }
@@ -212,7 +210,7 @@ public struct Navigateur: View {
     /*return Navigateur {[
         euclide, euclideEtendu, modulo
     ]}*/
-    return Navigateur(cléPageAccueil: "Chapitre 1", groupes: [
+    return Navigateur(pageAccueil: euclide, groupes: [
         LienDeNavigateurGroupe(titre: "Chapitre 1", liensDeNavigateur: [euclide, euclideEtendu]),
         LienDeNavigateurGroupe(titre: "Chapitre 2", liensDeNavigateur: [modulo])
     ])
