@@ -91,7 +91,7 @@ public struct Navigateur: View {
     
     var affichageGroupes: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
+            VStack(alignment: .leading, spacing: 32) {
                 ForEach(groupes) { groupe in
                     VStack(alignment: .leading, spacing: 0) {
                         Text(groupe.titre.localized())
