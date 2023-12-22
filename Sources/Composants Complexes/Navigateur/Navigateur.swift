@@ -80,6 +80,7 @@ public struct Navigateur: View {
             }
             .padding(10)
         }
+        .scrollIndicators(.hidden)
         .frame(width: largeur)
         .bordureArrondie(width: 1, color: .bordurePrimaire, cornerRadius: 8)
         .background(Color.fondSecondaire)
@@ -108,6 +109,7 @@ public struct Navigateur: View {
             .padding(10)
             .padding(.top, 8)
         }
+        .scrollIndicators(.hidden)
         .frame(width: largeur)
         .bordureArrondie(width: 2, color: .bordurePrimaire, cornerRadius: 8)
         .background(Color.fondSecondaire)

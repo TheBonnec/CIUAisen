@@ -38,6 +38,7 @@ public struct Page<Contenu: View>: View {
                 .padding(.bottom, 20)
                 .padding(.horizontal, 36)
             }
+            .scrollIndicators(.hidden)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .ignoresSafeArea()
         }
