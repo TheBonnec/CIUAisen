@@ -11,6 +11,4 @@ import Foundation
 public protocol Selectionnable: Identifiable, Equatable, Hashable {
     var id: UUID { get }
     var clé: String { get }
-    
-    init()
 }

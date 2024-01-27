@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import LaTeXSwiftUI
 
-@available(macOS 14, iOS 17, *)
+
+@available(macOS 13, iOS 16, *)
 public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertible>: View {
     
     /* ----- Attributs ----- */
     
-    var label: String
+    var libellé: String
     @Binding var valeur: V?
     var type: TypeEntrée
     
@@ -20,16 +22,28 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
     
     /* ----- Inits ----- */
     
-    public init(label: String, entréeTextuelle: Binding<V?>) where V == String {
-        self.label = label
+    public init(libellé: String, entréeTextuelle: Binding<V?>) where V == String {
+        self.libellé = libellé
         self._valeur = entréeTextuelle
         self.type = .texte
     }
     
-    public init(label: String, entréeNumérale: Binding<V?>) where V == Int {
-        self.label = label
-        self._valeur = entréeNumérale
-        self.type = .nombre
+    public init(libellé: String, entréeEntière: Binding<V?>) where V == Int {
+        self.libellé = libellé
+        self._valeur = entréeEntière
+        self.type = .entier
+    }
+    
+    public init(libellé: String, entréeEntièrePositiveLarge: Binding<V?>) where V == UInt64 {
+        self.libellé = libellé
+        self._valeur = entréeEntièrePositiveLarge
+        self.type = .entierPositifLarge
+    }
+    
+    public init(libellé: String, entréeDécimale: Binding<V?>) where V == Double {
+        self.libellé = libellé
+        self._valeur = entréeDécimale
+        self.type = .décimal
     }
     
     
@@ -38,7 +52,7 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(label.localized())
+            LaTeX(libellé.localized())
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .foregroundStyle(Color.texteSecondaire)
@@ -46,14 +60,16 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
             
             switch type {
             case .texte: entréeTextuelle
-            case .nombre: entréeNumérale
+            case .entier: entréeNumérale
+            case .entierPositifLarge: entréeEntierPositifLarge
+            case .décimal: entréeDécimale
             }
         }
         .frame(minWidth: 100)
     }
     
     public var entréeTextuelle: some View {
-        TextField(label, text: Binding(
+        TextField(libellé, text: Binding(
             get: { String(describing: self.valeur) },
             set: { self.valeur = V($0) ?? self.valeur }
         ))
@@ -71,8 +87,24 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
                 self.valeur = V(String($0)) ?? self.valeur
             }), formatter: NumberFormatter())
          */
-        TextField(label, value: Binding(
+        TextField(libellé, value: Binding(
             get: { valeur as! Int? ?? 0 },
+            set: { valeur = $0 as? V }
+        ), format: .number)
+        .champDeTexteAisenClassique()
+    }
+    
+    public var entréeEntierPositifLarge: some View {
+        TextField(libellé, value: Binding(
+            get: { valeur as! UInt64? ?? 0 },
+            set: { valeur = $0 as? V }
+        ), format: .number)
+        .champDeTexteAisenClassique()
+    }
+    
+    public var entréeDécimale: some View {
+        TextField(libellé, value: Binding(
+            get: { valeur as! Double? ?? 0 },
             set: { valeur = $0 as? V }
         ), format: .number)
         .champDeTexteAisenClassique()
@@ -83,7 +115,7 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
     /* ----- Enum ------ */
     
     enum TypeEntrée {
-        case texte, nombre
+        case texte, entier, entierPositifLarge, décimal
     }
 }
 
@@ -93,5 +125,5 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
 
 
 #Preview {
-    ChampDeTexte(label: "Label", entréeNumérale: .constant(4))
+    ChampDeTexte(libellé: "Libellé", entréeEntière: .constant(4))
 }

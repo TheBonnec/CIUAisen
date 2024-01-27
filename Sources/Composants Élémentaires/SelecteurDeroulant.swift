@@ -8,6 +8,7 @@
 import SwiftUI
 
 
+@available(macOS 13, iOS 16, *)
 public struct SelecteurDeroulant<T: Selectionnable>: View {
     
     /* ----- Attributs ----- */
@@ -70,7 +71,7 @@ public struct SelecteurDeroulant<T: Selectionnable>: View {
 
 
 #Preview {
-    let options = [LienGenerique(clé: "Option 1"), LienGenerique(clé: "Option 2"), LienGenerique(clé: "Option 3"), LienGenerique(clé: "Option 4")]
+    let options = [ElementSelectionnable(clé: "Option 1"), ElementSelectionnable(clé: "Option 2"), ElementSelectionnable(clé: "Option 3"), ElementSelectionnable(clé: "Option 4")]
     @State var selection = options[0]
     
     return SelecteurDeroulant(options: options, selection: $selection)

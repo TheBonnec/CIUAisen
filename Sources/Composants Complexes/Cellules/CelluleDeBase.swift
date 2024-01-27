@@ -1,15 +1,15 @@
 //
-//  CelluleRouge.swift
-//  
+//  CelluleDeBase.swift
 //
-//  Created by Thomas Le Bonnec on 22/12/2023.
+//
+//  Created by Thomas Le Bonnec on 20/12/2023.
 //
 
 import SwiftUI
 
 
 @available(macOS 13, iOS 16, *)
-public struct CelluleAvertissement<Content: View>: View {
+public struct CelluleDeBase<Content: View>: View {
     
     /* ----- Attributs ----- */
     
@@ -41,7 +41,7 @@ public struct CelluleAvertissement<Content: View>: View {
     /* ----- Vue ----- */
     
     public var body: some View {
-        Cellule(alignement: alignement, largeur: largeur, largeurMax: largeurMax, couleurDeFond: config.teinteAvertissementSecondaire) {
+        Cellule(alignement: alignement, largeur: largeur, largeurMax: largeurMax, couleurDeFond: config.teinteDeBaseSecondaire) {
             contenu
         }
     }
@@ -52,7 +52,7 @@ public struct CelluleAvertissement<Content: View>: View {
 
 
 #Preview {
-    CelluleAvertissement(alignement: .leading, largeurMax: .infinity) {
+    CelluleDeBase(alignement: .leading, largeurMax: .infinity) {
         Text("Bonjour")
     }
     .environmentObject(ConfigurationAisen())

@@ -8,18 +8,17 @@
 import SwiftUI
 
 
+@available(macOS 13, iOS 16, *)
 public struct Navigateur: View {
     
     /* ----- Attributs ----- */
     
-    public var largeur: CGFloat
-    public var typeAffichage: TypeAffichage
-    public var liens: [LienDeNavigateur]
-    public var groupes: [LienDeNavigateurGroupe]
+    var largeur: CGFloat
+    var typeAffichage: TypeAffichage
+    var liens: [LienDeNavigateur]
+    var groupes: [LienDeNavigateurGroupe]
     
     @State private var sélection: UUID
-    
-    @State private var test: String = "test"
     
     
     
@@ -186,10 +185,6 @@ public struct Navigateur: View {
                                 self.sélection = item.id
                             })
                     )
-                    /*.onTapGesture {
-                        self.sélection = item.id
-                    }
-                    */
             }
         }
     }
@@ -204,7 +199,7 @@ public struct Navigateur: View {
     let euclide = LienDeNavigateur(clé: "Algorithme d'Euclide - PGCD", destination:
         Page(titre: "Algorithme d'Euclide - PGCD", contenu: {
             Cellule {
-                ChampDeTexte(label: "a", entréeNumérale: .constant(4))
+                ChampDeTexte(libellé: "a", entréeEntière: .constant(4))
             }
         }))
     let euclideEtendu = LienDeNavigateur(clé: "Algorithme Étendu d'Euclide", destination:
@@ -216,9 +211,7 @@ public struct Navigateur: View {
             Text("Bonjour")
         }))
     
-    /*return Navigateur {[
-        euclide, euclideEtendu, modulo
-    ]}*/
+    
     return Navigateur(pageAccueil: euclide, groupes: [
         LienDeNavigateurGroupe(titre: "Chapitre 1", liensDeNavigateur: [euclide, euclideEtendu]),
         LienDeNavigateurGroupe(titre: "Chapitre 2", liensDeNavigateur: [modulo])

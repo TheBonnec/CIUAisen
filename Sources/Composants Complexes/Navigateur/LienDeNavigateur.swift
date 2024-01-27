@@ -8,13 +8,14 @@
 import SwiftUI
 
 
+@available(macOS 13, iOS 16, *)
 public struct LienDeNavigateur: Identifiable {
     public let id = UUID()
-    let lienDeNavigateur: any Lien
+    private let lienDeNavigateur: any Lien
     
     
     public init<Destination: View>(clé: String, destination: Destination) {
-        let lienGénérique = LienGenerique(clé: clé)
+        let lienGénérique = ElementSelectionnable(clé: clé)
         self.lienDeNavigateur = LienDeNavigateurPrimitif(lien: lienGénérique, destination: destination)
     }
     
