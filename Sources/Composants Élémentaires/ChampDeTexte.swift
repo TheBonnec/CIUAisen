@@ -70,7 +70,7 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
     
     public var entréeTextuelle: some View {
         TextField(libellé, text: Binding(
-            get: { String(describing: self.valeur) },
+            get: { String(describing: self.valeur ?? "" as! V) },
             set: { self.valeur = V($0) ?? self.valeur }
         ))
         .champDeTexteAisenClassique()
