@@ -43,4 +43,9 @@ public class ConfigurationAisen: ObservableObject {
     @Published public var textePrimaire = Color.textePrimaire
     @Published public var texteSecondaire = Color.texteSecondaire
     @Published public var texteTertiaire = Color.texteTertiaire
+    
+    
+    public init() {
+        
+    }
 }
