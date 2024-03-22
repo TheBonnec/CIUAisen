@@ -53,8 +53,8 @@ public struct Bouton: View {
         }, label: {
             Text(label.localized())
                 .foregroundStyle(couleurDeFace)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+                .padding(.horizontal, 20)
                 .background(couleurDeFond)
                 .cornerRadius(4)
         })

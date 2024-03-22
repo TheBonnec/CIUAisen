@@ -16,7 +16,7 @@ let package = Package(
             targets: ["CIUAisen"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/grdleo/LaTeXSwiftUI", from: "1.3.0")
+        .package(url: "https://github.com/colinc86/LaTeXSwiftUI", branch: "main")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

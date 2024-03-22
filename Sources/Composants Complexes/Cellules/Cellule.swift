@@ -88,10 +88,11 @@ public struct Cellule<Content: View>: View {
 
 
 #Preview {
-    Cellule(alignement: .leading, largeur: 200) {
+    Cellule(largeur: 200) {
         Text("Bonjour")
         Text("Bonjour, Monde !")
     }
+    .environmentObject(ConfigurationAisen())
     .padding(20)
     .frame(width: 300, height: 150)
 }
