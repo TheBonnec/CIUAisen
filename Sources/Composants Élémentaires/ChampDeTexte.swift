@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import LaTeXSwiftUI
 
 
 public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertible>: View {
@@ -51,7 +50,7 @@ public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertibl
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 2) {
-            LaTeX(libellé.localized())
+            Text(libellé.localized())
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .foregroundStyle(Color.texteSecondaire)
