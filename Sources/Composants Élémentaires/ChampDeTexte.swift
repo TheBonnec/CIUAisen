@@ -9,7 +9,6 @@ import SwiftUI
 import LaTeXSwiftUI
 
 
-@available(macOS 13, iOS 16, *)
 public struct ChampDeTexte<V: CustomStringConvertible & LosslessStringConvertible>: View {
     
     /* ----- Attributs ----- */

@@ -8,7 +8,6 @@
 import SwiftUI
 
 
-@available(macOS 13, iOS 16, *)
 public struct Page<Contenu: View>: View {
     
     /* ----- Attributs ----- */

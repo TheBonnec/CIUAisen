@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-@available(macOS 13, iOS 16, *)
+@available(macOS 13, iOS 15, *)
 public struct Cellule<Content: View>: View {
     
     /* ----- Attributs ----- */

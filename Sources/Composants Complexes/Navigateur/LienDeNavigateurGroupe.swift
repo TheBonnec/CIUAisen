@@ -8,7 +8,6 @@
 import SwiftUI
 
 
-@available(macOS 13, iOS 16, *)
 public struct LienDeNavigateurGroupe: Identifiable {
     public let id = UUID()
     public let titre: String
