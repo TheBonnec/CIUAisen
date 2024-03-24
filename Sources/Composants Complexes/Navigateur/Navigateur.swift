@@ -72,13 +72,12 @@ public struct Navigateur: View {
     
     
     var affichageLiens: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 0) {
                 ListeDeLiens(liens: liens, sélection: $sélection)
             }
             .padding(10)
         }
-        .scrollIndicators(.hidden)
         .frame(width: largeur)
         .bordureArrondie(width: 1, color: .bordurePrimaire, cornerRadius: 8)
         .background(Color.fondSecondaire)
@@ -89,7 +88,7 @@ public struct Navigateur: View {
     
     
     var affichageGroupes: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 32) {
                 ForEach(groupes) { groupe in
                     VStack(alignment: .leading, spacing: 0) {
@@ -107,7 +106,6 @@ public struct Navigateur: View {
             .padding(10)
             .padding(.top, 8)
         }
-        .scrollIndicators(.hidden)
         .frame(width: largeur)
         .bordureArrondie(width: 2, color: .bordurePrimaire, cornerRadius: 8)
         .background(Color.fondSecondaire)

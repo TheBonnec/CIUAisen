@@ -33,7 +33,7 @@ public struct Page<Contenu: View>: View {
     public var body: some View {
         GeometryReader { géometrie in
             ZStack {
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading, spacing: 36) {
                         Text(titre.localized())
                             .font(.largeTitle)
@@ -52,7 +52,6 @@ public struct Page<Contenu: View>: View {
                     .padding(.bottom, 20)
                     .padding(.horizontal, 36)
                 }
-                .scrollIndicators(.hidden)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .ignoresSafeArea()
                 
